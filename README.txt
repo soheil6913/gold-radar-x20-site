@@ -1,4 +1,1 @@
-Gold Radar X20 official static website.
-Persian: index.html
-English: en/index.html
-Icon: assets/icon.png
+Gold Radar X20 3D website. Upload preserving folders.
