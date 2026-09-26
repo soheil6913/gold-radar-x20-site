@@ -1,1 +1,1 @@
-Gold Radar X20 3D website. Upload preserving folders.
+Gold Radar X20 V3 — WebGL 3D product experience. GitHub Pages ready. Three.js is loaded from jsDelivr CDN.
