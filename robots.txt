@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://soheil6913.github.io/gold-radar-x20-site/sitemap.xml

@@ -1,0 +1,1 @@
+Gold Radar X20 — Final 3D static website. Upload the contents of this folder to the main branch of the GitHub Pages repository.

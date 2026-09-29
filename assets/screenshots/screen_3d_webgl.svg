@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 820" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#080b10"/>
+      <stop offset="100%" stop-color="#030406"/>
+    </linearGradient>
+    <linearGradient id="meshGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#102040"/>
+      <stop offset="50%" stop-color="#00f0ff"/>
+      <stop offset="100%" stop-color="#ff0055"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Phone Frame -->
+  <rect width="400" height="820" rx="36" fill="url(#bgGrad)" stroke="#222b38" stroke-width="4"/>
+  <rect x="12" y="12" width="376" height="796" rx="28" fill="#080a0f"/>
+
+  <!-- Status Bar -->
+  <text x="28" y="38" fill="#8899ac" font-family="sans-serif" font-size="11">۱۳:۱۹</text>
+  <text x="325" y="38" fill="#d6a63a" font-family="sans-serif" font-size="11">۱۰٪ 🔋</text>
+
+  <!-- Top Title Bar -->
+  <rect x="20" y="52" width="360" height="42" rx="10" fill="#111823" stroke="#d6a63a" stroke-opacity="0.3"/>
+  <text x="365" y="77" fill="#d6a63a" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="end">اسکن زمین 2095 (10×8)</text>
+  <rect x="30" y="60" width="100" height="26" rx="6" fill="#00d2ff" fill-opacity="0.2" stroke="#00d2ff"/>
+  <text x="80" y="77" fill="#00f0ff" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">WebGL 3D بومی</text>
+
+  <!-- 3D Canvas Visualizer -->
+  <rect x="20" y="104" width="360" height="580" rx="16" fill="#04060a" stroke="#1c2533"/>
+  
+  <!-- Grid Perspective Lines -->
+  <g stroke="#00f0ff" stroke-opacity="0.15" stroke-width="1">
+    <!-- Isometric Grid Planes -->
+    <path d="M 50,480 L 200,280 L 350,480 L 200,620 Z"/>
+    <path d="M 80,450 L 200,310 L 320,450 L 200,580 Z"/>
+    <path d="M 110,420 L 200,340 L 290,420 L 200,540 Z"/>
+    
+    <!-- Cross Grid -->
+    <line x1="200" y1="280" x2="200" y2="620"/>
+    <line x1="50" y1="480" x2="350" y2="480"/>
+    <line x1="125" y1="380" x2="275" y2="550"/>
+    <line x1="275" y1="380" x2="125" y2="550"/>
+  </g>
+
+  <!-- 3D Surface Peaks / Terrain Wave Mesh -->
+  <path d="M 50,480 Q 110,410 160,370 T 220,330 T 290,390 T 350,480 Q 280,520 220,560 T 140,540 Z" fill="url(#meshGrad)" fill-opacity="0.35" stroke="#00f0ff" stroke-width="1.5"/>
+  <path d="M 80,450 Q 140,360 180,320 T 240,310 T 300,420 Q 250,510 180,530 Z" fill="#ff0055" fill-opacity="0.25" stroke="#ff0055" stroke-width="1.5"/>
+
+  <!-- Subterranean Volumetric Anomaly Cones & Pins -->
+  <g filter="url(#glow)">
+    <!-- Pin 1 -->
+    <line x1="150" y1="430" x2="150" y2="340" stroke="#ff0055" stroke-width="2"/>
+    <circle cx="150" cy="340" r="10" fill="#ff0055"/>
+    <ellipse cx="150" cy="430" rx="25" ry="12" fill="#ff0055" fill-opacity="0.2" stroke="#ff0055"/>
+
+    <!-- Pin 2 -->
+    <line x1="220" y1="410" x2="220" y2="300" stroke="#ff0055" stroke-width="2"/>
+    <circle cx="220" cy="300" r="12" fill="#ff2266"/>
+    <ellipse cx="220" cy="410" rx="35" ry="18" fill="#ff2266" fill-opacity="0.3" stroke="#ff2266"/>
+
+    <!-- Pin 3 (Gold Peak) -->
+    <line x1="270" y1="450" x2="270" y2="360" stroke="#ffaa00" stroke-width="2"/>
+    <circle cx="270" cy="360" r="11" fill="#ffd700"/>
+    <ellipse cx="270" cy="450" rx="28" ry="14" fill="#ffd700" fill-opacity="0.3" stroke="#ffd700"/>
+
+    <!-- Blue Void Nodes -->
+    <circle cx="110" cy="480" r="5" fill="#00f0ff"/>
+    <circle cx="180" cy="490" r="6" fill="#00aaff"/>
+    <circle cx="240" cy="510" r="5" fill="#0088ff"/>
+    <circle cx="290" cy="470" r="6" fill="#00aaff"/>
+  </g>
+
+  <!-- Floating HUD Buttons -->
+  <rect x="230" y="118" width="136" height="30" rx="15" fill="#0a121e" stroke="#00f0ff" stroke-opacity="0.4"/>
+  <text x="298" y="137" fill="#00f0ff" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">👁️ نمایش ابزارها و فیلترها</text>
+
+  <!-- Quick Zoom FAB -->
+  <circle cx="55" cy="650" r="22" fill="#d6a63a" filter="url(#glow)"/>
+  <text x="55" y="656" fill="#000" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">+</text>
+
+  <!-- Navigation Tab Bar -->
+  <rect x="20" y="696" width="360" height="54" rx="16" fill="#0e131d" stroke="#1f2a3a"/>
+  
+  <g font-family="sans-serif" font-size="9" text-anchor="middle">
+    <!-- Tab 1 -->
+    <text x="52" y="726" fill="#667788">اسکن زمین</text>
+    <!-- Tab 2 (Active) -->
+    <circle cx="112" cy="716" r="14" fill="#00d2ff" fill-opacity="0.2"/>
+    <text x="112" y="738" fill="#00f0ff" font-weight="bold">سه بعدی</text>
+    <!-- Tab 3 -->
+    <text x="172" y="726" fill="#667788">زنده</text>
+    <!-- Tab 4 -->
+    <text x="232" y="726" fill="#667788">تاریخچه</text>
+    <!-- Tab 5 -->
+    <text x="292" y="726" fill="#667788">هوش مصنوعی</text>
+    <!-- Tab 6 -->
+    <text x="348" y="726" fill="#667788">تنظیمات</text>
+  </g>
+</svg>
