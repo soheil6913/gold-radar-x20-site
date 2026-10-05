@@ -85,6 +85,92 @@
       </div>
     </section>
 
+    <!-- D3 Historical Frequency-to-Depth Chart Section -->
+    <section class="section d3-telemetry-section" id="d3-chart-section">
+      <div class="sectionhead">
+        <div class="eyebrow">D3.JS HISTORICAL SPECTRUM TELEMETRY</div>
+        <h2>Historical Frequency-to-Depth Spectrum Analysis</h2>
+        <p class="muted">Select any scan target point in the 3D viewport or selector bar below to dynamically generate its D3.js frequency-to-depth resonance curve and telemetry envelope.</p>
+      </div>
+
+      <!-- Target Quick Selector Bar -->
+      <div class="target-selector-bar">
+        <button class="target-select-btn active" data-target-id="gold" onclick="selectTarget('gold')">
+          <span class="target-badge">✨</span>
+          <span class="target-name">Gold Target</span>
+          <span class="target-meta">0.50m | 740 Hz</span>
+        </button>
+        <button class="target-select-btn" data-target-id="cavity" onclick="selectTarget('cavity')">
+          <span class="target-badge">🌌</span>
+          <span class="target-name">Cavity Void</span>
+          <span class="target-meta">3.20m | 120 Hz</span>
+        </button>
+        <button class="target-select-btn" data-target-id="metal" onclick="selectTarget('metal')">
+          <span class="target-badge">💎</span>
+          <span class="target-name">Precious Metal</span>
+          <span class="target-meta">1.80m | 620 Hz</span>
+        </button>
+        <button class="target-select-btn" data-target-id="vein" onclick="selectTarget('vein')">
+          <span class="target-badge">⚡</span>
+          <span class="target-name">Deep Mineral Vein</span>
+          <span class="target-meta">4.50m | 890 Hz</span>
+        </button>
+      </div>
+
+      <!-- D3 Chart Card Container -->
+      <div class="d3-chart-card">
+        <div class="d3-chart-header">
+          <div class="d3-target-info">
+            <div class="d3-title-row">
+              <span id="d3-target-icon" class="d3-target-icon">✨</span>
+              <h3 id="d3-target-title">Gold Target Anomaly ✨</h3>
+              <span id="d3-target-tag" class="d3-tag gold">HIGH RESONANCE</span>
+            </div>
+            <div class="d3-stats-grid">
+              <div class="stat-box">
+                <span class="stat-label">Estimated Depth</span>
+                <span id="d3-stat-depth" class="stat-value gold">0.50 m</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">Peak Frequency</span>
+                <span id="d3-stat-freq" class="stat-value cyan">740 Hz</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">ADC Signal</span>
+                <span id="d3-stat-adc" class="stat-value">935</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">Grid Coords</span>
+                <span id="d3-stat-coords" class="stat-value">X: 8, Y: 7</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">Soil Factor</span>
+                <span id="d3-stat-soil" class="stat-value">1.42 (Mineralized Soil)</span>
+              </div>
+            </div>
+          </div>
+          <div class="d3-controls">
+            <button class="d3-action-btn" onclick="toggleD3ConfidenceBand()">👁️ Confidence Band</button>
+            <button class="d3-action-btn" onclick="resetD3Chart()">🔄 Reset Spectrum</button>
+          </div>
+        </div>
+
+        <!-- D3 Canvas Container -->
+        <div class="d3-svg-wrapper">
+          <div id="d3-chart-container"></div>
+          <div id="d3-chart-tooltip" class="d3-tooltip"></div>
+        </div>
+
+        <!-- Chart Legend & Footer -->
+        <div class="d3-chart-footer">
+          <div class="legend-item"><span class="legend-dot gold"></span> Frequency-to-Depth Curve</div>
+          <div class="legend-item"><span class="legend-dot area"></span> Historical Confidence Envelope</div>
+          <div class="legend-item"><span class="legend-dot peak"></span> Peak Target Anomaly</div>
+          <div class="legend-item"><span class="legend-dot point"></span> Historical Telemetry Points</div>
+        </div>
+      </div>
+    </section>
+
     <!-- App Screenshots Showcase Gallery Section -->
     <section class="section" id="showcase">
       <div class="sectionhead">
@@ -314,6 +400,7 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
   <script src="../assets/scene.js"></script>
   <script>
     function filterGallery(category, evt) {
