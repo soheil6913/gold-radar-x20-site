@@ -1,0 +1,8 @@
+{
+  "name": "Gold Radar X20",
+  "description": "Gold Radar X20 — تجربه‌ای آینده‌نگر برای نمایش و تحلیل داده‌های سنسوری.",
+  "requestPrompt": "Gold Radar X20 site",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

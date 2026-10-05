@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Gold Radar X20 — برنامه‌ای پیشرفته و سینمایی برای نمایش سه‌بعدی و تحلیل داده‌های سنسوری زمین.">
+  <meta property="og:title" content="Gold Radar X20 — X20 3D Cinematic Interface">
+  <meta property="og:description" content="Gold Radar X20 — تجربه سینمایی و سه‌بعدی نمایش رادار و تحلیل آنومالی‌های زیرزمینی.">
+  <title>Gold Radar X20 — X20 Cinematic 3D Control</title>
+  
+  <!-- Fonts & Three.js 3D Library -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;600;800&family=Vazirmatn:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <!-- 3D Particle Space Canvas Background -->
+  <canvas id="space"></canvas>
+  <div class="noise"></div>
+  
+  <!-- Futuristic Cinematic Boot Loading Sequence -->
+  <div id="boot">
+    <div class="bootcore">
+      <div class="bootring"></div>
+      <div class="bootline">X20 3D ENGINE INITIALIZING</div>
+      <div class="bootbar"><i></i></div>
+      <small style="color:#888;letter-spacing:.25em;font-family:'Orbitron',sans-serif">GOLD RADAR X20 CORE v2.4</small>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="brand">GOLD <b>RADAR</b> X20 <span class="badge-3d">3D LIVE</span></div>
+    <div class="links">
+      <a href="#hero-3d">رادار ۳بعدی</a>
+      <a href="#showcase">اسکرین‌شات‌ها</a>
+      <a href="#engine">معماری سیستم</a>
+      <a href="#core">کنترل مرکزی</a>
+      <a href="#app">دانلود اپلیکیشن</a>
+      <button id="sfx-toggle" class="sfx-btn" onclick="toggleAudioFX()">🔊 صوتی</button>
+      <a class="lang" href="en/">EN</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero 3D Interactive Stage Section -->
+    <section class="hero" id="hero-3d">
+      <div>
+        <div class="eyebrow">X20 / CINEMATIC 3D SENSOR INTERFACE</div>
+        <h1>GOLD <span>RADAR</span> X20</h1>
+        <p>تجربه‌ای شگفت‌انگیز و سینمایی از اسکن زمین، رندرینگ سه‌بعدی بومی WebGL و تحلیل فرکانسی آنومالی‌های زیرزمینی با قابلیت چرخش و زوم تعاملی.</p>
+        <div class="actions">
+          <a class="btn" href="#showcase" onclick="playClickSFX()">📱 گالری تصویری اپلیکیشن</a>
+          <a class="btn ghost" href="#app" onclick="playClickSFX()">⚡ دریافت نسخه رسمی</a>
+        </div>
+      </div>
+
+      <!-- Interactive 3D Three.js Radar Canvas Container -->
+      <div class="radar-stage">
+        <div id="canvas-3d-container" class="radar-3d-wrapper">
+          <!-- Live 3D Viewport Controls HUD -->
+          <div class="hud-3d-overlay">
+            <div class="hud-header">
+              <span class="pulse-dot"></span>
+              <span class="hud-title">3D REALTIME TERRAIN SCANNER</span>
+            </div>
+
+            <div class="hud-modes">
+              <button class="hud-btn active" onclick="set3DMode('wireframe', this)">🌐 شبکه 3D</button>
+              <button class="hud-btn" onclick="set3DMode('thermal', this)">🔥 حرارتی</button>
+              <button class="hud-btn" onclick="set3DMode('targets', this)">💎 اهداف</button>
+            </div>
+            <div class="hud-hint">🖱️ با درگ موس چرخشی ۳۶۰ درجه داشته باشید | اسکرول جهت زوم</div>
+          </div>
+
+          <!-- Interactive Target Tooltip Overlay -->
+          <div id="target-tooltip" class="target-tooltip">
+            <div id="tooltip-title" class="tooltip-title">هدف طلا ✨</div>
+            <div id="tooltip-depth" class="tooltip-detail">عمق: ۰٫۵۰ متر | X: 8, Y: 7</div>
+            <div id="tooltip-sig" class="tooltip-detail">فرکانس: ۷۴۰ Hz | ADC: 935</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Screenshots Showcase Gallery Section -->
+    <section class="section" id="showcase">
+      <div class="sectionhead">
+        <div class="eyebrow">INTERFACE & SCREENSHOTS</div>
+        <h2>معرفی امکانات پیشرفته و محیط واقعی اپلیکیشن</h2>
+        <p class="muted">نگاهی جامع به رابط کاربری هوشمند، تحلیل سه‌بعدی لایه‌های زمین، رادار ۲بعدی OKM Realtime، نشانگرهای هوشمند هدف و ابزارهای کالیبراسیون Gold Radar X20.</p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="gallery-nav">
+        <button class="gallery-tab active" onclick="filterGallery('all', event)">همه بخش‌ها</button>
+        <button class="gallery-tab" onclick="filterGallery('3d', event)">اسکن سه‌بعدی (3D WebGL)</button>
+        <button class="gallery-tab" onclick="filterGallery('2d', event)">نقشه حرارتی ۲بعدی (OKM)</button>
+        <button class="gallery-tab" onclick="filterGallery('targets', event)">نشانگرهای هدف هوشمند</button>
+        <button class="gallery-tab" onclick="filterGallery('calibration', event)">کالیبراسیون و خاک</button>
+        <button class="gallery-tab" onclick="filterGallery('sensors', event)">سنسورها و قطب‌نما</button>
+      </div>
+
+      <!-- Screenshot Cards Grid -->
+      <div class="screenshot-grid">
+        
+        <!-- Card 1: 3D WebGL Native -->
+        <article class="screenshot-card" data-cat="3d">
+          <div class="phone-mockup" onclick="openLightbox('assets/screenshots/screen_3d_webgl.svg', 'اسکن زمین ۲۰۹۵ — پردازش سه‌بعدی بومی WebGL 3D با پین‌های مشخص‌کننده عمق آنومالی')">
+            <img src="assets/screenshots/screen_3d_webgl.svg" alt="اسکن سه‌بعدی بومی Gold Radar X20">
+            <div class="zoom-overlay">
+              <span class="zoom-badge">🔍 بزرگ‌نمایی تصویر</span>
+            </div>
+          </div>
+          <div class="screenshot-info">
+            <span class="tag">WebGL 3D Native</span>
+            <h3>تصویربرداری و مدل‌سازی ۳بعدی لایه‌های زیرزمین</h3>
+            <p>رندرینگ سریع و روان گرافیکی لایه‌های زمین با امکان چرخش ۳۶۰ درجه، زوم، سنجش پشته‌ها و پین‌های نشان‌دهنده عمق اهداف.</p>
+            <ul>
+              <li>شبکه استاندارد ۱۰×۸ و ۱۲×۱۰ نقاط اسکن</li>
+              <li>نمایش نقاط آنومالی به صورت برجستگی ۳بعدی</li>
+              <li>پین‌های هدف حرارتی با خطوط عمق‌سنجی</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Card 2: 2D Heatmap & Smart Targets -->
+        <article class="screenshot-card" data-cat="2d targets">
+          <div class="phone-mockup" onclick="openLightbox('assets/screenshots/screen_2d_heatmap.svg', 'نمای ۲بعدی فیلترشده OKM Realtime Plan — تحلیل فرکانسی و نشانگرهای هدف هوشمند طلا')">
+            <img src="assets/screenshots/screen_2d_heatmap.svg" alt="نقشه حرارتی ۲بعدی و اهداف هوشمند">
+            <div class="zoom-overlay">
+              <span class="zoom-badge">🔍 بزرگ‌نمایی تصویر</span>
+            </div>
+          </div>
+          <div class="screenshot-info">
+            <span class="tag">OKM Realtime Plan</span>
+            <h3>نقشه حرارتی ۲بعدی و نشانگرهای هدف هوشمند</h3>
+            <p>تشخیص اتوماتیک آنومالی‌های فرکانسی طلا و فلزات باارزش با محاسبه دقیق عمق به متر و مختصات شبکه X,Y.</p>
+            <ul>
+              <li>محاسبه خودکار عمق (مثلاً عمق ۰٫۵۰ متر و ۶٫۰۷ متر)</li>
+              <li>فیلتر رنگی اختصاصی OKM جهت تفکیک طلا و فلزات</li>
+              <li>نمایش مقدار بیشینه سیگنال (Max ADC)</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Card 3: Gold Chest Anomaly -->
+        <article class="screenshot-card" data-cat="3d">
+          <div class="phone-mockup" onclick="openLightbox('assets/screenshots/screen_gold_chest.svg', 'اسکن صندوقچه طلای مدفون (Gold Chest) — تشخیص دقیق نقطه مرکز آنومالی فلز باارزش')">
+            <img src="assets/screenshots/screen_gold_chest.svg" alt="اسکن صندوقچه طلای مدفون">
+            <div class="zoom-overlay">
+              <span class="zoom-badge">🔍 بزرگ‌نمایی تصویر</span>
+            </div>
+          </div>
+          <div class="screenshot-info">
+            <span class="tag">Gold Chest Scan</span>
+            <h3>تفکیک صندوقچه طلا و حفره‌های زیرزمینی</h3>
+            <p>مدل‌سازی گرافیکی افت و خیزهای زمین با حالت حرارتی جهت کشف صندوق‌های مدفون و فلزات در عمق بالا.</p>
+            <ul>
+              <li>سوئیچ بین نمای حرارتی، شبکه و عمق 3D</li>
+              <li>حساسیت بالا به طلا و گنجینه‌های مدفون</li>
+              <li>پشتیبانی از انواع پروفایل‌های خاک معدنی</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Card 4: Calibration & Soil Selector -->
+        <article class="screenshot-card" data-cat="calibration">
+          <div class="phone-mockup" onclick="openLightbox('assets/screenshots/screen_calibration.svg', 'کالیبراسیون ۵ مرحله‌ای و انتخاب نوع خاک — خاک کشاورزی، خاک معدنی، سنگ و صخره، ماسه خیس')">
+            <img src="assets/screenshots/screen_calibration.svg" alt="کالیبراسیون و انتخاب خاک">
+            <div class="zoom-overlay">
+              <span class="zoom-badge">🔍 بزرگ‌نمایی تصویر</span>
+            </div>
+          </div>
+          <div class="screenshot-info">
+            <span class="tag">Radar Calibration</span>
+            <h3>راهنمای ۵ مرحله‌ای کالیبراسیون و تنظیمات خاک</h3>
+            <p>حذف کامل نویز محیطی و تنظیم سرعت انتشار امواج متناسب با جنس خاک منطقه اسکن.</p>
+            <ul>
+              <li>۴ حالت خاک: کشاورزی، معدنی، سنگ/صخره، ماسه خیس</li>
+              <li>طرح حرکت موازی (Parallel) و زیگزاگ (Zig-Zag)</li>
+              <li>تنظیم ابعاد شبکه (تعداد خطوط و تعداد پالس‌ها)</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Card 5: Sensors & Digital Compass -->
+        <article class="screenshot-card" data-cat="sensors">
+          <div class="phone-mockup" onclick="openLightbox('assets/screenshots/screen_sensors_compass.svg', 'تنظیمات سنسور مگنتومتر، درایور ارتباطی CH340 و قطب‌نمای دیجیتال HMC5883L')">
+            <img src="assets/screenshots/screen_sensors_compass.svg" alt="سنسورها و قطب‌نمای دیجیتال">
+            <div class="zoom-overlay">
+              <span class="zoom-badge">🔍 بزرگ‌نمایی تصویر</span>
+            </div>
+          </div>
+          <div class="screenshot-info">
+            <span class="tag">Hardware Integration</span>
+            <h3>پشتیبانی انواع مگنتومتر و قطب‌نمای دیجیتال</h3>
+            <p>اتصال مستقیم سخت‌افزار اسکنر به اپلیکیشن با پشتیبانی از کابل USB CH340 و ماژول‌های بلوتوث.</p>
+            <ul>
+              <li>پشتیبانی از سنسورهای X20، FMG3، FLC100، HMC5883L، QMC</li>
+              <li>تنظیم سرعت Baud Rate درایور CH340 (9600 / 115200 bps)</li>
+              <li>قطب‌نمای زنده دیجیتال جهت هماهنگ‌سازی مسیر اسکن</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Card 6: Spectrum Legend & Filters -->
+        <article class="screenshot-card" data-cat="2d">
+          <div class="phone-mockup" onclick="openLightbox('assets/screenshots/screen_signal_spectrum.svg', 'راهنمای طیف رنگی سنسور و تفکیک طلا، فلزات ارزشمند و حفره‌های هادی منفی')">
+            <img src="assets/screenshots/screen_signal_spectrum.svg" alt="طیف رنگی سنسور و تفکیک فلزات">
+            <div class="zoom-overlay">
+              <span class="zoom-badge">🔍 بزرگ‌نمایی تصویر</span>
+            </div>
+          </div>
+          <div class="screenshot-info">
+            <span class="tag">Signal Intelligence</span>
+            <h3>راهنمای طیف رنگی و زاویه‌سنجی هوشمند</h3>
+            <p>تحلیل رنگی دامنه سیگنال و نمایش زنده زوایای Yaw و Pitch دستگاه جهت جلوگیری از خطای اپراتور.</p>
+            <ul>
+              <li>طیف رنگی: آبی (حفره) -> سبز (خاک) -> قرمز/طلا (فلز باارزش)</li>
+              <li>فیلترهای متنوع: حرارتی، فلز/حفره، کنتراست بالا، خاکستری</li>
+              <li>زاویه‌سنجی لحظه‌ای جهت حفظ بالانس دستگاه</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- System Architecture Section -->
+    <section class="section" id="engine">
+      <div class="sectionhead">
+        <div class="eyebrow">SYSTEM ARCHITECTURE</div>
+        <h2>از سیگنال تا تصویر سینمایی</h2>
+        <p class="muted">ساختار رابط X20 حول دریافت داده، پردازش سه‌بعدی زنده و ابزارهای تحلیلی فوق‌پیشرفته طراحی شده است.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="num">01 / INPUT</div>
+          <h3>Sensor Layer</h3>
+          <p>لایه دریافت داده برای سنسورهای مگنتومتر، فلاکس‌گیت و ماژول‌های ارتباطی USB/BT.</p>
+        </article>
+        <article class="card">
+          <div class="num">02 / VISUAL</div>
+          <h3>WebGL 3D Matrix</h3>
+          <p>تبدیل جریان سیگنال به مدل‌های سه‌بعدی برجسته با طیف حرارتی و مشخص‌کننده‌های عمق.</p>
+        </article>
+        <article class="card">
+          <div class="num">03 / ANALYSIS</div>
+          <h3>Data Intelligence</h3>
+          <p>محیطی هوشمند برای بررسی تاریخچه اسکن‌ها، نمودارهای فرکانسی و خروجی‌های تحلیلی.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Control Core Section -->
+    <section class="section" id="core">
+      <div class="core">
+        <div>
+          <div class="sectionhead">
+            <div class="eyebrow">X20 / CONTROL CORE</div>
+            <h2>مرکز کنترل سه‌بعدی</h2>
+            <p class="muted">یک نمای مفهومی از وضعیت اجزای اصلی رابط X20.</p>
+          </div>
+          <div class="terminal">
+            <div class="terminalhead">
+              <span>X20 / CONTROL CORE</span>
+              <span>● ONLINE</span>
+            </div>
+            <pre>&gt; BOOT_SEQUENCE ........ <span class="ok">READY</span>
+&gt; SCAN_ENGINE .......... <span class="ok">READY</span>
+&gt; WEBGL_3D_MATRIX ...... <span class="ok">ACTIVE</span>
+&gt; VISUALIZER ........... <span class="ok">ACTIVE</span>
+&gt; DATA_CHANNEL ......... <span class="ok">STANDBY</span>
+&gt; SYSTEM_STATUS ........ <span class="ok">NOMINAL</span></pre>
+          </div>
+        </div>
+        <div class="phone-wrap">
+          <div class="phone">
+            <div class="screen">
+              <div class="mini">GOLD RADAR X20 / LIVE INTERFACE</div>
+              <div class="mini-radar"></div>
+              <div class="mini">VISUALIZER&nbsp;&nbsp;&nbsp; TRACKER&nbsp;&nbsp;&nbsp; HISTORY</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="app">
+      <div class="eyebrow">GOLD RADAR X20</div>
+      <h2>ENTER THE 3D WORLD</h2>
+      <p>نسخه اپلیکیشن را از کانال انتشار رسمی دریافت کنید.</p>
+      <div class="actions" style="justify-content:center">
+        <a class="btn" href="https://cafebazaar.ir/" target="_blank" rel="noopener" onclick="playClickSFX()">دانلود از کافه‌بازار (CAFEBAZAAR)</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Viewer Modal -->
+  <div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox(event)">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox()">×</button>
+      <img id="lightboxImg" src="" alt="تصویر اپلیکیشن">
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <span>© Gold Radar X20 — 3D Cinematic Interface</span>
+    <span>ENGINEERED FOR THE NEXT SIGNAL</span>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/scene.js"></script>
+  <script>
+    function filterGallery(category, evt) {
+      const tabs = document.querySelectorAll('.gallery-tab');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      if(evt && evt.target) evt.target.classList.add('active');
+
+      const cards = document.querySelectorAll('.screenshot-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.cat.includes(category)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      playClickSFX();
+    }
+
+    function openLightbox(imgSrc, captionText) {
+      const modal = document.getElementById('lightboxModal');
+      const img = document.getElementById('lightboxImg');
+      const caption = document.getElementById('lightboxCaption');
+      
+      img.src = imgSrc;
+      caption.innerText = captionText;
+      modal.classList.add('open');
+      playClickSFX();
+    }
+
+    function closeLightbox(e) {
+      const modal = document.getElementById('lightboxModal');
+      modal.classList.remove('open');
+      playClickSFX();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 820" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#080b10"/>
+      <stop offset="100%" stop-color="#030406"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Phone Frame -->
+  <rect width="400" height="820" rx="36" fill="url(#bgGrad)" stroke="#222b38" stroke-width="4"/>
+  <rect x="12" y="12" width="376" height="796" rx="28" fill="#080a0f"/>
+
+  <!-- Status Bar -->
+  <text x="28" y="38" fill="#8899ac" font-family="sans-serif" font-size="11">۱۳:۱۶</text>
+  <text x="325" y="38" fill="#d6a63a" font-family="sans-serif" font-size="11">۱۱٪ 🔋</text>
+
+  <!-- Setup Category Tabs -->
+  <rect x="20" y="52" width="170" height="38" rx="10" fill="#00f0ff" fill-opacity="0.15" stroke="#00f0ff"/>
+  <text x="105" y="75" fill="#00f0ff" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">📡 سخت‌افزار و سنسور</text>
+
+  <rect x="200" y="52" width="180" height="38" rx="10" fill="#121a24"/>
+  <text x="290" y="75" fill="#8899ac" font-family="sans-serif" font-size="11" text-anchor="middle">▦ ابعاد و زمینه اسکن</text>
+
+  <!-- Sensor Profile Type Selection -->
+  <text x="365" y="118" fill="#ffd700" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="end">نوع سنسور مگنتومتر (Sensor Type)</text>
+
+  <!-- Sensor Chips -->
+  <rect x="250" y="130" width="130" height="36" rx="8" fill="#ffd700" fill-opacity="0.2" stroke="#ffd700"/>
+  <text x="315" y="152" fill="#ffd700" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">استاندارد X20</text>
+
+  <rect x="105" y="130" width="135" height="36" rx="8" fill="#00f0ff" fill-opacity="0.1" stroke="#00f0ff"/>
+  <text x="172" y="152" fill="#00f0ff" font-family="sans-serif" font-size="11" text-anchor="middle">FMG3 فلاکس‌گیت</text>
+
+  <rect x="210" y="176" width="170" height="36" rx="8" fill="#141e2e" stroke="#1f2d40"/>
+  <text x="295" y="198" fill="#00f0ff" font-family="sans-serif" font-size="11" text-anchor="middle">FLC100 فلاکس‌گیت</text>
+
+  <rect x="70" y="176" width="130" height="36" rx="8" fill="#141e2e" stroke="#1f2d40"/>
+  <text x="135" y="198" fill="#00f0ff" font-family="sans-serif" font-size="11" text-anchor="middle">قطب‌نما HMC5883L</text>
+
+  <rect x="200" y="222" width="180" height="36" rx="8" fill="#141e2e" stroke="#1f2d40"/>
+  <text x="290" y="244" fill="#00f0ff" font-family="sans-serif" font-size="11" text-anchor="middle">مگنتومتر QMC5883L</text>
+
+  <rect x="50" y="222" width="140" height="36" rx="8" fill="#141e2e" stroke="#1f2d40"/>
+  <text x="120" y="244" fill="#00f0ff" font-family="sans-serif" font-size="11" text-anchor="middle">شتاب‌سنج ADXL345</text>
+
+  <rect x="200" y="268" width="180" height="36" rx="8" fill="#141e2e" stroke="#1f2d40"/>
+  <text x="290" y="290" fill="#00f0ff" font-family="sans-serif" font-size="11" text-anchor="middle">سنسور داخلی گوشی 📱</text>
+
+  <!-- CH340 Baud Rate Selection -->
+  <text x="365" y="334" fill="#ffd700" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="end">سرعت اتصال درایور CH340 (Baud Rate)</text>
+
+  <g transform="translate(20, 346)">
+    <rect x="0" y="0" width="170" height="48" rx="10" fill="#00f0ff" fill-opacity="0.1" stroke="#00f0ff"/>
+    <text x="85" y="29" fill="#00f0ff" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">bps 9600</text>
+
+    <rect x="190" y="0" width="170" height="48" rx="10" fill="#121b28" stroke="#1c2a3d"/>
+    <text x="275" y="29" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">bps 115200</text>
+  </g>
+
+  <!-- Digital Compass Section -->
+  <rect x="20" y="414" width="360" height="110" rx="16" fill="#0c131d" stroke="#1d2b3c"/>
+  
+  <circle cx="330" cy="469" r="28" fill="#ffd700" fill-opacity="0.2" stroke="#ffd700"/>
+  <polygon points="330,447 337,472 330,466 323,472" fill="#ffd700"/>
+  <polygon points="330,491 337,466 330,472 323,466" fill="#8899ac"/>
+
+  <text x="285" y="455" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="end">قطب‌نمای دیجیتال (QMC / HMC)</text>
+  <text x="285" y="475" fill="#8899ac" font-family="sans-serif" font-size="10" text-anchor="end">هماهنگ‌کننده جهت اسکن زمین سه بعدی</text>
+
+  <text x="50" y="458" fill="#ffd700" font-family="sans-serif" font-size="18" font-weight="bold">۸۲٫۴۰°</text>
+  <text x="50" y="480" fill="#00f0ff" font-family="sans-serif" font-size="11" font-weight="bold">شرق (E)</text>
+
+  <!-- Quick FAB -->
+  <circle cx="55" cy="650" r="22" fill="#d6a63a" filter="url(#glow)"/>
+  <text x="55" y="656" fill="#000" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">+</text>
+
+  <!-- Navigation Tab Bar -->
+  <rect x="20" y="696" width="360" height="54" rx="16" fill="#0e131d" stroke="#1f2a3a"/>
+  
+  <g font-family="sans-serif" font-size="9" text-anchor="middle">
+    <circle cx="52" cy="716" r="14" fill="#ffd700" fill-opacity="0.2"/>
+    <text x="52" y="738" fill="#ffd700" font-weight="bold">اسکن زمین</text>
+    <text x="112" y="726" fill="#667788">سه بعدی</text>
+    <text x="172" y="726" fill="#667788">زنده</text>
+    <text x="232" y="726" fill="#667788">تاریخچه</text>
+    <text x="292" y="726" fill="#667788">هوش مصنوعی</text>
+    <text x="348" y="726" fill="#667788">تنظیمات</text>
+  </g>
+</svg>

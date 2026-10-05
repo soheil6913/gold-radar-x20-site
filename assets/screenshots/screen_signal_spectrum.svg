@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 820" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#080b10"/>
+      <stop offset="100%" stop-color="#030406"/>
+    </linearGradient>
+    <linearGradient id="spectrumBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#001aff"/>
+      <stop offset="25%" stop-color="#00ffff"/>
+      <stop offset="50%" stop-color="#00ff33"/>
+      <stop offset="75%" stop-color="#ffff00"/>
+      <stop offset="100%" stop-color="#ff0000"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Phone Frame -->
+  <rect width="400" height="820" rx="36" fill="url(#bgGrad)" stroke="#222b38" stroke-width="4"/>
+  <rect x="12" y="12" width="376" height="796" rx="28" fill="#080a0f"/>
+
+  <!-- Status Bar -->
+  <text x="28" y="38" fill="#8899ac" font-family="sans-serif" font-size="11">۱۳:۰۶</text>
+  <text x="325" y="38" fill="#d6a63a" font-family="sans-serif" font-size="11">۱۳٪ 🔋</text>
+
+  <!-- Filter Pills Header Row -->
+  <g transform="translate(20, 52)" font-family="sans-serif" font-size="10" font-weight="bold">
+    <rect x="0" y="0" width="70" height="36" rx="8" fill="#ffd700" stroke="#ffd700"/>
+    <text x="35" y="22" fill="#000000" text-anchor="middle">🔥 حرارتی</text>
+
+    <rect x="78" y="0" width="80" height="36" rx="8" fill="#141e2b" stroke="#1f2c3d"/>
+    <text x="118" y="22" fill="#ffd700" text-anchor="middle">🏆 فلز / حفره</text>
+
+    <rect x="166" y="0" width="90" height="36" rx="8" fill="#141e2b" stroke="#1f2c3d"/>
+    <text x="211" y="22" fill="#00f0ff" text-anchor="middle">⚡ کنتراست بالا</text>
+
+    <rect x="264" y="0" width="96" height="36" rx="8" fill="#141e2b" stroke="#1f2c3d"/>
+    <text x="312" y="22" fill="#ffffff" text-anchor="middle">🧱 خاکستر / معدنی</text>
+  </g>
+
+  <!-- 3D Canvas View Window -->
+  <rect x="20" y="104" width="360" height="380" rx="16" fill="#04070c" stroke="#1c2838"/>
+  
+  <!-- Orientation Badge Badge -->
+  <rect x="160" y="116" width="206" height="28" rx="6" fill="#000000" fill-opacity="0.8"/>
+  <text x="263" y="134" fill="#ffd700" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">زاویه Yaw: -23° | Pitch: -1°</text>
+
+  <!-- Side Vertical Color Legend -->
+  <rect x="34" y="150" width="20" height="220" rx="6" fill="url(#spectrumBar)" transform="rotate(90 44 260)"/>
+
+  <!-- Simulated Terrain Mesh -->
+  <path d="M 50,380 L 120,320 L 200,340 L 280,310 L 350,370 L 280,440 L 190,420 L 100,430 Z" fill="#00ff66" fill-opacity="0.25" stroke="#00ff66" stroke-width="1.5"/>
+
+  <!-- Legend Bottom Card -->
+  <rect x="20" y="500" width="360" height="120" rx="16" fill="#0c121c" stroke="#1d2a3a"/>
+  <text x="365" y="530" fill="#ffd700" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="end">🎨 راهنمای طیف رنگی سنسور (Signal Legend)</text>
+
+  <!-- Horizontal Full Spectrum Color Bar -->
+  <rect x="36" y="546" width="328" height="20" rx="6" fill="url(#spectrumBar)"/>
+
+  <g font-family="sans-serif" font-size="9" fill="#8899ac" text-anchor="middle">
+    <text x="50" y="582">حفره / هادی منفی</text>
+    <text x="200" y="582">خاک خنثی (Neutral)</text>
+    <text x="340" y="582">طلا / فلز باارزش ✨</text>
+  </g>
+
+  <!-- Quick FAB -->
+  <circle cx="55" cy="650" r="22" fill="#d6a63a" filter="url(#glow)"/>
+  <text x="55" y="656" fill="#000" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">+</text>
+
+  <!-- Navigation Tab Bar -->
+  <rect x="20" y="696" width="360" height="54" rx="16" fill="#0e131d" stroke="#1f2a3a"/>
+  
+  <g font-family="sans-serif" font-size="9" text-anchor="middle">
+    <circle cx="52" cy="716" r="14" fill="#ffd700" fill-opacity="0.2"/>
+    <text x="52" y="738" fill="#ffd700" font-weight="bold">اسکن زمین</text>
+    <text x="112" y="726" fill="#667788">سه بعدی</text>
+    <text x="172" y="726" fill="#667788">زنده</text>
+    <text x="232" y="726" fill="#667788">تاریخچه</text>
+    <text x="292" y="726" fill="#667788">هوش مصنوعی</text>
+    <text x="348" y="726" fill="#667788">تنظیمات</text>
+  </g>
+</svg>
