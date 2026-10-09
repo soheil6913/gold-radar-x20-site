@@ -1182,3 +1182,19 @@ main { position: relative; }
   .phone { transform: none; }
   .footer { flex-direction: column; gap: 10px; }
 }
+.boot-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.62;
+  z-index: 0;
+  background: #000;
+}
+
+.bootcore {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 18px #000;
+}
