@@ -117,9 +117,27 @@ window.addEventListener("pointermove", e => {
 resizeSpace();
 if (x) drawSpace();
 
-setTimeout(() => {
+
+const introVideo = document.querySelector(".boot-video");
+let bootHidden = false;
+
+function hideBootScreen() {
+  if (bootHidden) return;
+  bootHidden = true;
   if (boot) boot.classList.add("hide");
-}, 2200);
+}
+
+if (introVideo) {
+  introVideo.addEventListener("ended", hideBootScreen, { once: true });
+  introVideo.addEventListener("error", () => {
+    setTimeout(hideBootScreen, 2200);
+  }, { once: true });
+
+  setTimeout(hideBootScreen, 10000);
+} else {
+  setTimeout(hideBootScreen, 2200);
+}
+
 
 // 3D Tilt Card Interaction
 document.querySelectorAll(".card, .screenshot-card").forEach(card => {
