@@ -898,3 +898,24 @@ main { position: relative; }
   .phone { transform: none; }
   .footer { flex-direction: column; gap: 10px; }
 }
+.boot-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(72vw, 760px);
+  height: auto;
+  max-height: 65vh;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+  opacity: 0.85;
+  z-index: 0;
+  background: transparent;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.bootcore {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 18px #000;
+}
